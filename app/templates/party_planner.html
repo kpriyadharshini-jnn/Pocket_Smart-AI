@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Party Planner · PocketSmart AI
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="planner-layout">
+
+
+    <section class="form-panel">
+
+
+        <p class="eyebrow">
+            PARTY PLANNER
+        </p>
+
+
+        <h1>
+            Plan the Celebration
+        </h1>
+
+
+        <form id="partyForm">
+
+
+            <label>
+
+                Total Budget (₹)
+
+                <input
+                    name="budget"
+                    type="number"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                Guest Count
+
+                <input
+                    name="guests"
+                    type="number"
+                    min="1"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                Event Type
+
+                <select name="event_type">
+
+                    <option>
+                        Birthday
+                    </option>
+
+                    <option>
+                        Wedding
+                    </option>
+
+                    <option>
+                        Corporate
+                    </option>
+
+                    <option>
+                        Family Function
+                    </option>
+
+                    <option>
+                        Other
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                Venue
+
+                <input
+                    name="venue"
+                    value="Home"
+                >
+
+            </label>
+
+
+            <label>
+
+                City
+
+                <input
+                    name="city"
+                    placeholder="Chennai"
+                >
+
+            </label>
+
+
+            <label>
+
+                Preferences
+
+                <textarea
+                    name="preferences"
+                    placeholder="Vegetarian food, simple decor, music..."
+                ></textarea>
+
+            </label>
+
+
+            <button
+                class="btn primary"
+                type="submit"
+            >
+
+                Generate Party Plan
+
+            </button>
+
+
+        </form>
+
+
+    </section>
+
+
+
+    <section class="result-panel">
+
+        <div id="result">
+
+            <div class="empty-state">
+
+                Your recommendation
+                will appear here.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+
+window.initPartyPlanner(
+    "partyForm",
+    "result"
+);
+
+</script>
+
+{% endblock %}

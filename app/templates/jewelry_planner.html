@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Jewelry Planner · PocketSmart AI
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="planner-layout">
+
+
+    <section class="form-panel">
+
+
+        <p class="eyebrow">
+            JEWELRY PLANNER
+        </p>
+
+
+        <h1>
+            Match Your Occasion
+        </h1>
+
+
+        <form
+            id="jewelryForm"
+            enctype="multipart/form-data"
+        >
+
+
+            <label>
+
+                Budget (₹)
+
+                <input
+                    name="budget"
+                    type="number"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                Occasion
+
+                <input
+                    name="occasion"
+                    placeholder="Wedding, birthday, festival..."
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                Style
+
+                <select name="style">
+
+                    <option>
+                        Minimal
+                    </option>
+
+                    <option>
+                        Traditional
+                    </option>
+
+                    <option>
+                        Elegant
+                    </option>
+
+                    <option>
+                        Statement
+                    </option>
+
+                    <option>
+                        Casual
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                Outfit Image
+
+                <input
+                    name="outfit_image"
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                >
+
+            </label>
+
+
+            <label>
+
+                Notes
+
+                <textarea
+                    name="notes"
+                    placeholder="Preferred metal, colors, neckline, etc."
+                ></textarea>
+
+            </label>
+
+
+            <button
+                class="btn primary"
+                type="submit"
+            >
+
+                Generate Jewelry Plan
+
+            </button>
+
+
+        </form>
+
+
+    </section>
+
+
+
+    <section class="result-panel">
+
+        <div id="result">
+
+            <div class="empty-state">
+
+                Upload an outfit image
+                if you want multimodal
+                style analysis.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+
+window.initJewelryPlanner(
+    "jewelryForm",
+    "result"
+);
+
+</script>
+
+{% endblock %}

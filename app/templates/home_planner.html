@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Home Planner · PocketSmart AI
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="planner-layout">
+
+
+    <section class="form-panel">
+
+
+        <p class="eyebrow">
+            HOME INTERIOR
+        </p>
+
+
+        <h1>
+            Build Your Home Plan
+        </h1>
+
+
+        <form id="homeForm">
+
+
+            <label>
+
+                Total Budget (₹)
+
+                <input
+                    name="budget"
+                    type="number"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                Rooms
+
+                <input
+                    name="rooms"
+                    placeholder="Living Room, Bedroom, Kitchen"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                Style
+
+                <select name="style">
+
+                    <option>
+                        Modern
+                    </option>
+
+                    <option>
+                        Minimal
+                    </option>
+
+                    <option>
+                        Traditional
+                    </option>
+
+                    <option>
+                        Scandinavian
+                    </option>
+
+                    <option>
+                        Industrial
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label>
+
+                Items & Quantities
+
+                <input
+                    name="items"
+                    placeholder="Lights: 4, Fans: 2, Table: 1"
+                >
+
+            </label>
+
+
+            <label>
+
+                Notes
+
+                <textarea
+                    name="notes"
+                    placeholder="Room size, color preferences, priorities..."
+                ></textarea>
+
+            </label>
+
+
+            <button
+                class="btn primary"
+                type="submit"
+            >
+
+                Generate Home Plan
+
+            </button>
+
+
+        </form>
+
+
+    </section>
+
+
+
+    <section class="result-panel">
+
+        <div id="result">
+
+            <div class="empty-state">
+
+                Your recommendation
+                will appear here.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+
+window.initHomePlanner(
+    "homeForm",
+    "result"
+);
+
+</script>
+
+{% endblock %}
